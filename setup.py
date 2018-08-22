@@ -18,5 +18,7 @@ timetravel10_hash_module = Extension('timetravel10_hash',
 
 setup (name = 'timetravel10_hash',
        version = '1.0',
+       author = "kimkkikki",
+       author_email = "kimkkikki1@gmail.com",
        description = 'Bindings for proof of work used by timetravel10',
        ext_modules = [timetravel10_hash_module])
