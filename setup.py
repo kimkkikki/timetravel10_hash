@@ -20,5 +20,6 @@ setup (name = 'timetravel10_hash',
        version = '1.0',
        author = "kimkkikki",
        author_email = "kimkkikki1@gmail.com",
+       url = "https://github.com/kimkkikki/timetravel10_hash",
        description = 'Bindings for proof of work used by timetravel10',
        ext_modules = [timetravel10_hash_module])
