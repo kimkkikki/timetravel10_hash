@@ -6,6 +6,7 @@ setup.py
 timetravel10.c
 timetravel10.h
 timetravel10_module.c
+sha3/aes_helper.c
 sha3/blake.c
 sha3/bmw.c
 sha3/cubehash.c

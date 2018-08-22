@@ -13,13 +13,19 @@ timetravel10_hash_module = Extension('timetravel10_hash',
                                           'sha3/echo.c',
                                           'sha3/luffa.c',
                                           'sha3/simd.c',
-                                          'sha3/shavite.c'],
+                                          'sha3/shavite.c',
+                                          'sha3/aes_helper.c'],
                             include_dirs=['.', './sha3'])
 
+with open("README.md", "r") as fh:
+    long_description = fh.read()
+
 setup (name = 'timetravel10_hash',
-       version = '1.0',
+       version = '1.0.1',
        author = "kimkkikki",
        author_email = "kimkkikki1@gmail.com",
        url = "https://github.com/kimkkikki/timetravel10_hash",
        description = 'Bindings for proof of work used by timetravel10',
+       long_description=long_description,
+       long_description_content_type="text/markdown",
        ext_modules = [timetravel10_hash_module])
