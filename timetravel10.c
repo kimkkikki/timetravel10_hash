@@ -94,9 +94,6 @@ static void getAlgoString(char *str, int seq)
 	*sptr = '\0';
 }
 
-static __thread uint32_t s_ntime = 0;
-static uint32_t s_sequence = UINT32_MAX;
-static uint8_t s_firstalgo = 0xFF;
 static char hashOrder[HASH_FUNC_COUNT + 1] = { 0 };
 
 #define INITIAL_DATE HASH_FUNC_BASE_TIMESTAMP
@@ -110,10 +107,7 @@ static inline uint32_t getCurrentAlgoSeq(uint32_t ntime)
 static void get_travel_order(uint32_t ntime, char *permstr)
 {
 	uint32_t seq = getCurrentAlgoSeq(ntime);
-	if (s_sequence != seq) {
-		getAlgoString(permstr, seq);
-		s_sequence = seq;
-	}
+	getAlgoString(permstr, seq);
 }
 
 void timetravel10_hash(const char* input, char* output)
