@@ -129,8 +129,8 @@ void timetravel10_hash(const char* input, char* output)
 	sph_echo512_context      ctx_echo;
 #endif
 
-	uint32_t *in32 = (uint32_t*) input;
-	get_travel_order(&in32[17], hashOrder);
+	uint32_t *data = (uint32_t*) input;
+	get_travel_order(data[17], hashOrder);
 
 	void *in = (void*) input;
 	int size = 80;

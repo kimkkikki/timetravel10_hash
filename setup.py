@@ -21,7 +21,7 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 
 setup (name = 'timetravel10_hash',
-       version = '1.0.1',
+       version = '1.0.2',
        author = "kimkkikki",
        author_email = "kimkkikki1@gmail.com",
        url = "https://github.com/kimkkikki/timetravel10_hash",

@@ -9,8 +9,8 @@ sudo apt-get install python-dev
 
 ## Installation
 
-To install this module, clone this repository and run:
+To install this module, run:
 
 ```
-python setup.py install
+pip install timetravel10-hash
 ```
