@@ -22,9 +22,6 @@
 #include "sha3/sph_echo.h"
 #endif
 
-// #include "sha3/sph_whirlpool.h"
-// #include "sha3/sph_sha2.h"
-
 enum Algo {	BLAKE = 0,
 	BMW,
 	GROESTL,
@@ -138,11 +135,8 @@ void timetravel10_hash(const char* input, char* output)
 	sph_echo512_context      ctx_echo;
 #endif
 
-	if (s_sequence == UINT32_MAX) {
-		uint32_t *data = (uint32_t*) input;
-		const uint32_t ntime = !data[17] ? (uint32_t) time(NULL) : data[17];
-		get_travel_order(ntime, hashOrder);
-	}
+	uint32_t *in32 = (uint32_t*) input;
+	get_travel_order(&in32[17], hashOrder);
 
 	void *in = (void*) input;
 	int size = 80;
@@ -153,11 +147,6 @@ void timetravel10_hash(const char* input, char* output)
 	{
 		const char elem = hashOrder[i];
 		uint8_t algo = elem >= 'A' ? elem - 'A' + 10 : elem - '0';
-
-		if (i > 0) {
-			in = (void*) hash;
-			size = 64;
-		}
 
 		switch (algo) {
 		case BLAKE:
@@ -218,6 +207,9 @@ void timetravel10_hash(const char* input, char* output)
 			break;
 #endif
 		}
+
+		in = (void*) hash;
+		size = 64;
 	}
 
     memcpy(output, hash, 32);
